@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="UFI_Constructor" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="main.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="SDL">
+    <File Name="../../../../../../usr/include/SDL2/begin_code.h"/>
+    <File Name="../../../../../../usr/include/SDL2/close_code.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_assert.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_atomic.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_audio.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_bits.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_blendmode.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_clipboard.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_config.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_cpuinfo.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_egl.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_endian.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_error.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_events.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_filesystem.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_gamecontroller.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_gesture.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_haptic.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_hints.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_joystick.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_keyboard.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_keycode.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_loadso.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_log.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_main.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_messagebox.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_mouse.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_mutex.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_name.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengl.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles2.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles2_gl2.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles2_gl2ext.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles2_gl2platform.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengles2_khrplatform.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_opengl_glext.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_pixels.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_platform.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_power.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_quit.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_rect.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_render.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_revision.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_rwops.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_scancode.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_shape.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_stdinc.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_surface.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_system.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_syswm.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_assert.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_common.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_compare.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_crc32.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_font.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_fuzzer.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_harness.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_images.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_log.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_md5.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_test_random.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_thread.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_timer.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_touch.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_ttf.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_types.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_version.h"/>
+    <File Name="../../../../../../usr/include/SDL2/SDL_video.h"/>
+  </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
+  <VirtualDirectory Name="UFI_lib_virtual">
+    <File Name="../UFI_lib/UFI.cpp"/>
+    <File Name="../UFI_lib/UFI.h"/>
+    <File Name="../UFI_lib/UFI_Anim.cpp"/>
+    <File Name="../UFI_lib/UFI_Anim.h"/>
+    <File Name="../UFI_lib/UFI_Debug.cpp"/>
+    <File Name="../UFI_lib/UFI_Debug.h"/>
+    <File Name="../UFI_lib/UFI_EventController.cpp"/>
+    <File Name="../UFI_lib/UFI_EventController.h"/>
+    <File Name="../UFI_lib/UFI_ImageLoader.cpp"/>
+    <File Name="../UFI_lib/UFI_ImageLoader.h"/>
+    <File Name="../UFI_lib/UFI_Line.cpp"/>
+    <File Name="../UFI_lib/UFI_Line.h"/>
+    <File Name="../UFI_lib/UFI_Module.cpp"/>
+    <File Name="../UFI_lib/UFI_Module.h"/>
+    <File Name="../UFI_lib/UFI_Render.cpp"/>
+    <File Name="../UFI_lib/UFI_Render.h"/>
+    <File Name="../UFI_lib/UFI_Texture.cpp"/>
+    <File Name="../UFI_lib/UFI_Texture.h"/>
+    <File Name="../UFI_lib/UFI_Types.h"/>
+    <File Name="../UFI_lib/UFI_Window.cpp"/>
+    <File Name="../UFI_lib/UFI_Window.h"/>
+  </VirtualDirectory>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-std=c++14;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <Library Value="SDL2"/>
+        <Library Value="SDL2_ttf"/>
+        <Library Value="jpeg"/>
+        <Library Value="png"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths>/home/sav4/Documents/prog/git/UFI
+/home/sav4/Documents/prog/git/UFI/UFI_Constructor
+/usr/include/SDL2
+/usr/include/SDL</SearchPaths>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

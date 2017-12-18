@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="UFI" Database="" Version="10.0.0">
+  <WorkspaceParserMacros/>
+  <WorkspaceParserPaths>
+    <Include Path="../UFI"/>
+  </WorkspaceParserPaths>
+  <Project Name="UFI_Constructor" Path="UFI_Constructor/UFI_Constructor.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="UFI_Constructor" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="Muscle" ConfigName="Release"/>
+      <Project Name="UFI_Constructor" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
