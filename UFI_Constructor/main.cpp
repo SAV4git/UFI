@@ -88,24 +88,6 @@ void Setup(void){
 	
 	printf("mem %d\n", Debug.getMemSize_kB());
 	
-	int alpha[255] = {100};
-	
-	for(int i = 0; i < 100; i++) alpha[i] = i; 
-	for(int i = 100; i < 150; i++) alpha[i] = 100; 
-	for(int i = 150; i < 255; i++) alpha[i] = 255 - i; 
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-	
-	
-	
-	for(int i = 0; i < 255; i++ ){
-		Win.RenderStartFPS(50);
-		Event.RunEventHendler(renderer); // You always must have this Handler
-		if( Ev.Mouse.Scroll.Horisontal < 0) Win.Close();
-		cT_Hex_BG.Display();
-		cT_Hex_BG.SetAlpha(alpha[i]);
-		Win.RenderEnd();
-	}
-	cA_LineRizeX.Start();
 }
 
 
@@ -147,14 +129,6 @@ void Loop(void)
 	
 	sprintf(MouseX, "%d", Ev.Mouse.Position.x);
 	sprintf(MouseY, "%d", Ev.Mouse.Position.y);
-	
-	//cM_Start.SetRelativeTextElement(*cTX_Log.SetText("New 1"), "New text 1", 50, 120);
-	//cM_Start.SetRelativeTextElement(*cTX_Log.SetText("New 2"), "New text 2", 80, 120);
-	/*
-	static int t = 0;
-	if(t > 10) {cM_Start.SetRelativeTextElement(*cTX_Log.SetText(fps_buffer), fps_buffer, 20, 240); t = 0;}
-	else t++;
-	*/
 	
 	//cTX_Log.Display();
 	//0:0.1:100 = return 0, 0.1, 0.2,....100;

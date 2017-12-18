@@ -1,0 +1,45 @@
+[{
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor/main.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_Constructor/main.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_Constructor/main.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Anim.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Anim.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Anim.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Debug.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Debug.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Debug.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_ImageLoader.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_ImageLoader.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_ImageLoader.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Line.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Line.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Line.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Render.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Render.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Render.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Texture.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Texture.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Texture.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }, {
+  "file": "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp",
+  "directory": "/home/sav4/Documents/prog/git/UFI/UFI_Constructor",
+  "command": "g++ -c /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp -o /home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp.o  -g  -O0  -std=c++14  -Wall -I. -I."
+ }]
