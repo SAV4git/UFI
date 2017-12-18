@@ -1,6 +1,6 @@
-#include "UFI/UFI.h"
+#include "../UFI_lib/UFI.h"
 #include "UFI_Line.h"
-#include "UFI/UFI_Types.h"
+#include "../UFI_lib/UFI_Types.h"
 #include <iostream>
 
 UFI_Line::UFI_Line(int Number_of_lines)

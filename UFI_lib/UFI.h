@@ -8,16 +8,16 @@
 
 //g++ -O3 UFI_Texture.cpp UFI_Render.cpp UFI_Module.cpp UFI_EventController.cpp UFI.cpp main.cpp -std=c++1y -lSDL2 -lSDL2_ttf -o UFI_test  && ./UFI_test
 
-#include "UFI/UFI_Types.h"
+#include "../UFI_lib/UFI_Types.h"
 
-#include "UFI/UFI_Line.h"
-#include "UFI/UFI_Texture.h"
-#include "UFI/UFI_EventController.h"
-#include "UFI/UFI_Module.h"
-#include "UFI/UFI_Window.h"
-#include "UFI/UFI_Anim.h"
+#include "../UFI_lib/UFI_Line.h"
+#include "../UFI_lib/UFI_Texture.h"
+#include "../UFI_lib/UFI_EventController.h"
+#include "../UFI_lib/UFI_Module.h"
+#include "../UFI_lib/UFI_Window.h"
+#include "../UFI_lib/UFI_Anim.h"
 
-#include "UFI/UFI_Debug.h"
+#include "../UFI_lib/UFI_Debug.h"
 
 
 extern bool loop;

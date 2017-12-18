@@ -1,8 +1,8 @@
-Debug/main.cpp.o: main.cpp UFI/UFI.h UFI/UFI_Types.h UFI/UFI_Line.h \
- UFI/UFI_Texture.h UFI/UFI_EventController.h UFI/UFI_Module.h \
- UFI/UFI_Window.h UFI/UFI_Anim.h UFI/UFI_Debug.h
+Debug/main.cpp.o: main.cpp ../UFI_lib/UFI.h UFI/UFI_Types.h \
+ UFI/UFI_Line.h UFI/UFI_Texture.h UFI/UFI_EventController.h \
+ UFI/UFI_Module.h UFI/UFI_Window.h UFI/UFI_Anim.h UFI/UFI_Debug.h
 
-UFI/UFI.h:
+../UFI_lib/UFI.h:
 
 UFI/UFI_Types.h:
 

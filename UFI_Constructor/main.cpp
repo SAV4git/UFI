@@ -1,4 +1,4 @@
-#include "UFI/UFI.h"
+#include "../UFI_lib/UFI.h"
 #include <SDL2/SDL.h>
 
 #include <math.h>
@@ -102,7 +102,6 @@ void Window_init(void)
 	
 	renderer = Win.CreateRender();
 	
-	SDL_RenderSetLogicalSize( renderer, width, height );
 	SDL_SetRenderDrawColor( renderer, 0, 30, 70, 255 );
 }
 

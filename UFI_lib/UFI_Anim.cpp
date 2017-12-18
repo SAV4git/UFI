@@ -1,5 +1,5 @@
-#include "UFI/UFI.h"
-#include "UFI/UFI_Types.h"
+#include "../UFI_lib/UFI.h"
+#include "../UFI_lib/UFI_Types.h"
 #include "UFI_Anim.h"
 
 UFI_Anim::UFI_Anim()

@@ -1,20 +1,20 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-#include "UFI/UFI_Types.h"
-#include "UFI/UFI_EventController.h"
-#include "UFI/UFI_Window.h"
+#include "../UFI_lib/UFI_Types.h"
+#include "../UFI_lib/UFI_EventController.h"
+#include "../UFI_lib/UFI_Window.h"
 
-UFI_Window::UFI_Window()
-{
-	WinMain.X = 25;
-	WinMain.Y = 25;
-	WinMain.W = 100; 
-	WinMain.H = 100;
+UFI_Window::UFI_Window(){
+	WinParam.X = 25;
+	WinParam.Y = 25;
+	WinParam.W = 100; 
+	WinParam.H = 100;
 	
 	renderTime = 0;
 	renderTimeStart = SDL_GetPerformanceCounter();
 	renderTimeEnd = 0;
+	
 }
 
 
@@ -47,11 +47,11 @@ void UFI_Window::CreateWithSize(int w, int h)
 {
 	InitSDL();
 	
-	WinMain.W = w;
-	WinMain.H = h;
+	WinParam.W = w;
+	WinParam.H = h;
 	
 	if (State == 0){
-		win = SDL_CreateWindow("Default Window", WinMain.X, WinMain.Y, WinMain.W, WinMain.H, 0);
+		win = SDL_CreateWindow("Default Window", WinParam.X, WinParam.Y, WinParam.W, WinParam.H, 0);
 		if (win){ loop = true; }
 		else {
 			printf("Here could be your perfect window, but you have failed to do it\n");
@@ -69,7 +69,7 @@ void UFI_Window::CreateFullscreen()
 	
 	if (State == 0){
 		
-		win = SDL_CreateWindow("Default Window", WinMain.X, WinMain.Y, WinMain.H, WinMain.H, 0);
+		win = SDL_CreateWindow("Default Window", WinParam.X, WinParam.Y, WinParam.H, WinParam.H, 0);
 		
 		//SDL_SetWindowFullscreen(win, SDL_WINDOW_FULLSCREEN); //REAL
 		SDL_SetWindowFullscreen(win, SDL_WINDOW_FULLSCREEN_DESKTOP); //FAKE
@@ -83,13 +83,15 @@ void UFI_Window::CreateFullscreen()
 		printf("Something went HORRIBLY WRONG with SDL_Init\n");
 	}
 	
-	WinMain.H = Mode.h; 
-	WinMain.W = Mode.w;
+	WinParam.H = Mode.h; 
+	WinParam.W = Mode.w;
 }
 
 void UFI_Window::SetPosition(int x, int y)
 {
 	SDL_SetWindowPosition(this->win, x, y);
+	WinParam.X = x;
+	WinParam.Y = y;
 }
 
 
@@ -102,7 +104,7 @@ void UFI_Window::SetTitle(const char* title)
 bool UFI_Window::IsOpen()
 {
 	if(this->win != nullptr) return loop;
-	else false;
+	else return false;
 }
 
 
@@ -117,9 +119,9 @@ bool UFI_Window::Close()
 	return this->loop;
 }
 
-UFI_WinParam UFI_Window::Get()
+UFI_WinParam* UFI_Window::GetWinParam()
 {
-	return WinMain;
+	return &WinParam;
 }
 SDL_Window* UFI_Window::GetWin_ptr()
 {
@@ -156,7 +158,7 @@ void UFI_Window::GetInfo()
 		if (SDL_GetDisplayMode(display_in_use, i, &Mode) != 0) {
 			SDL_Log("SDL_GetDisplayMode failed: %s", SDL_GetError());
 		}
-		WinMain.Format = Mode.format;
+		WinParam.Format = Mode.format;
 
 		SDL_Log(
 			"Mode %i\tbpp %i\t%s\t%i x %i",
@@ -180,6 +182,7 @@ void UFI_Window::GetInfo()
 SDL_Renderer* UFI_Window::CreateRender()
 {
 	p_renderer = SDL_CreateRenderer( this->win, -1, SDL_RENDERER_ACCELERATED );
+	SDL_RenderSetLogicalSize( p_renderer, this->WinParam.W, this->WinParam.H );
 	return p_renderer;
 }
 

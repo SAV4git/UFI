@@ -19,7 +19,7 @@ protected:
 	Uint64 renderTimeStart = 0;
 	Uint64 renderTimeEnd = 0;
 	
-	UFI_WinParam WinMain;
+	UFI_WinParam WinParam;
 	
 	void InitSDL(void);
 public:
@@ -37,7 +37,7 @@ public:
 	bool Close();
 	
 	void 		GetInfo();
-	UFI_WinParam	Get();
+	UFI_WinParam*	GetWinParam();
 	SDL_Window*	GetWin_ptr();
 	SDL_Renderer*  GetRender();
 };

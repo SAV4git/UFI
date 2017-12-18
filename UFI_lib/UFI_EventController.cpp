@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-#include "UFI/UFI.h"
-#include "UFI/UFI_Types.h"
-#include "UFI/UFI_Texture.h"
-#include "UFI/UFI_Module.h"
-#include "UFI/UFI_EventController.h"
+#include "../UFI_lib/UFI.h"
+#include "../UFI_lib/UFI_Types.h"
+#include "../UFI_lib/UFI_Texture.h"
+#include "../UFI_lib/UFI_Module.h"
+#include "../UFI_lib/UFI_EventController.h"
 
 #include <string>
 #include <bitset>

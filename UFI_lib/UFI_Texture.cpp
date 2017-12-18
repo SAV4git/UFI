@@ -3,10 +3,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-#include "UFI/UFI.h"
-#include "UFI/UFI_Types.h"
-#include "UFI/UFI_Texture.h"
-#include "UFI/UFI_ImageLoader.h"
+#include "../UFI_lib/UFI.h"
+#include "../UFI_lib/UFI_Types.h"
+#include "../UFI_lib/UFI_Texture.h"
+#include "../UFI_lib/UFI_ImageLoader.h"
 
 using std::cout;
 using std::endl;

@@ -159,7 +159,8 @@
         <ClangCmpFlagsC/>
         <ClangCmpFlags/>
         <ClangPP/>
-        <SearchPaths>/home/sav4/Documents/prog/git/UFI
+        <SearchPaths>/home/sav4/Documents/prog/git/UFI/UFI_lib
+/home/sav4/Documents/prog/git/UFI
 /home/sav4/Documents/prog/git/UFI/UFI_Constructor
 /usr/include/SDL2
 /usr/include/SDL</SearchPaths>

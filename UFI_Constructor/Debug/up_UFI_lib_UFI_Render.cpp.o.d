@@ -1,9 +1,9 @@
-Debug/UFI_UFI_Texture.cpp.o: UFI/UFI_Texture.cpp UFI/UFI.h \
- UFI/UFI_Types.h UFI/UFI_Line.h UFI/UFI_Texture.h \
+Debug/up_UFI_lib_UFI_Render.cpp.o: ../UFI_lib/UFI_Render.cpp \
+ ../UFI_lib/UFI.h UFI/UFI_Types.h UFI/UFI_Line.h UFI/UFI_Texture.h \
  UFI/UFI_EventController.h UFI/UFI_Module.h UFI/UFI_Window.h \
- UFI/UFI_Anim.h UFI/UFI_Debug.h UFI/UFI_ImageLoader.h
+ UFI/UFI_Anim.h UFI/UFI_Debug.h
 
-UFI/UFI.h:
+../UFI_lib/UFI.h:
 
 UFI/UFI_Types.h:
 
@@ -20,5 +20,3 @@ UFI/UFI_Window.h:
 UFI/UFI_Anim.h:
 
 UFI/UFI_Debug.h:
-
-UFI/UFI_ImageLoader.h:
