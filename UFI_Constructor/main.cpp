@@ -237,7 +237,11 @@ void Createing_textures(){
 
 void RunTerminal(){
 	//Terminal.RunTerminalCmd("gedit");
-	Terminal.RunTerminalCmd("zenity --color-selection --show-palette");
+	//Terminal.RunTerminalCmd("zenity --color-selection --show-palette");
+	SDL_Color Col;
+	Terminal.Zenity_pallete(&Col);
+	
+	cB_Run.ButtonDefault.Title_ptr->SetTextColor(Col.r, Col.g, Col.b, Col.a);
 }
 
 

@@ -13,7 +13,7 @@ public:
 	UFI_Terminal();
 	~UFI_Terminal();
 	std::string RunTerminalCmd(const char*);
-	SDL_Color Zenity_pallete();
+	bool Zenity_pallete(SDL_Color*);
 };
 
 #endif // UFI_TERMINAL_H

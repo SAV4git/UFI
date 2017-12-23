@@ -1,3 +1,4 @@
+#include "../UFI_lib/UFI.h"
 #include "../UFI_lib/UFI_Terminal.h"
 //  from  RunTerminalCmd
 #include <cstdio>
@@ -30,8 +31,17 @@ std::string UFI_Terminal::RunTerminalCmd(const char* cmd){
     
     //zenity --file-selection --file-filter=""*.ogg" "*.wav" "*.aac""
 }
-SDL_Color UFI_Terminal::Zenity_pallete(){
-	UFI_Color_s a;
+bool UFI_Terminal::Zenity_pallete(SDL_Color* col){
+	std::string tempOut = this->RunTerminalCmd("zenity --color-selection --show-palette");
+	printf("Out = %s\n", tempOut.c_str());
+	if(tempOut != ""){
+		float Col_a = 1;
+		sscanf( tempOut.c_str(), "rgb(%u,%u,%u)\n", &col->r, &col->g, &col->b);
+		sscanf( tempOut.c_str(), "rgba(%u,%u,%u,%g)\n", &col->r, &col->g, &col->b, &Col_a );
+		col->a = (Uint8) (Col_a*255);
+		printf(" %u - %u - %u - %u\n", col->r, col->g, col->b, col->a);
+		return 1;
+	}
+	else return -1;
 	
-	a.
 }
