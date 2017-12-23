@@ -16,6 +16,7 @@
 #include "../UFI_lib/UFI_Module.h"
 #include "../UFI_lib/UFI_Window.h"
 #include "../UFI_lib/UFI_Anim.h"
+#include "../UFI_lib/UFI_Terminal.h"
 
 #include "../UFI_lib/UFI_Debug.h"
 
@@ -34,8 +35,6 @@ extern UFI_Color_s 		Color;
 
 extern bool 	UpdateObj;
 extern Uint64	TimeForUpdateObj[2];
-
-#define DEBUG_SLOWMO false
 
 void Window_init(void);
 void SDL_Destructor(void);

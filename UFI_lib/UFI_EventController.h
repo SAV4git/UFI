@@ -74,6 +74,7 @@ protected:
 	SDL_Renderer*	private_Rend = NULL;
 	
 	std::vector< UFI_Module* > 	ButtonVect;
+	std::vector< UFI_Button >	ButtonActionVect;
 	std::vector< UFI_Texture*>	TextureVect;
 	std::vector< SDL_Rect >		RectVect;
 	

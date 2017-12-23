@@ -13,6 +13,7 @@
 #include <iterator>
 #include <list>
 #include <vector>
+#include <algorithm>    // std::find
 #include <map>
 
 #include <bitset>
@@ -152,7 +153,6 @@ void UFI_EventHendler::Wheel_Handler(){
 }
 
 void UFI_EventHendler::VirtualButtonHandler(){
-
 	for(unsigned i = 0; i < ButtonVect.size(); i++){
 		
 		if(ButtonVect[i]->IsButtonActive){
@@ -175,7 +175,6 @@ void UFI_EventHendler::VirtualButtonHandler(){
 					
 					if( ButtonVect[i]->CallBack.PressedFunc != nullptr){
 						ButtonVect[i]->CallBack.PressedFunc();
-						printf("f\n");
 					}
 						
 						
@@ -208,12 +207,18 @@ void UFI_EventHendler::AddButtonDefault( SDL_Renderer* rend, UFI_Module* button,
 
 
 void UFI_EventHendler::AddButtonFocused( SDL_Renderer* rend, UFI_Module* button, UFI_TextElement* textEl, Func_ptr CallBack ){
+
 	button->IsButtonActive = true;
-	button->AddRelativePos( textEl );
-	button->ButtonFocused.Title_ptr = button->GetTextVector().back(); 
-	button->ButtonFocused.Rect = &button->ButtonFocused.Title_ptr->GetObject()->Rect.Output;
+	if(textEl != nullptr){
+		button->AddRelativePos( textEl );
+		button->ButtonFocused.Title_ptr = button->GetTextVector().back(); 
+		button->ButtonFocused.Rect = &button->ButtonFocused.Title_ptr->GetObject()->Rect.Output;
+	}else button->ButtonFocused.Rect = &button->GetRect()->Output;
 	if(CallBack != nullptr) button->CallBack.FocusedFunc = CallBack;
-	ButtonVect.push_back( button );
+
+	if (ButtonVect.end() == find(ButtonVect.begin(), ButtonVect.end(), button)){
+		ButtonVect.push_back( button );
+	}
 }
 
 
@@ -224,9 +229,12 @@ void UFI_EventHendler::AddButtonPressed( SDL_Renderer* rend, UFI_Module* button,
 		button->ButtonPressed.Title_ptr = button->GetTextVector().back();
 		button->ButtonPressed.Rect = &button->ButtonPressed.Title_ptr->GetObject()->Rect.Output;
 	}else button->ButtonPressed.Rect = &button->GetRect()->Output;
-	
+
 	if(CallBack != nullptr) button->CallBack.PressedFunc = CallBack;
-	ButtonVect.push_back( button );
+	
+	if (ButtonVect.end() == find(ButtonVect.begin(), ButtonVect.end(), button)){
+		ButtonVect.push_back( button );
+	}
 }
 
 

@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Arsen
-Date                   :=18/12/17
+Date                   :=23/12/17
 CodeLitePath           :=/home/sav4/.codelite
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -60,8 +60,8 @@ AS       := as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(ObjectSuffix) 
 
 
 
@@ -100,69 +100,13 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
 
-$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix): ../UFI_lib/UFI.cpp $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix): ../UFI_lib/UFI.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix) -MM ../UFI_lib/UFI.cpp
+$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix): ../UFI_lib/UFI_Window.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix): ../UFI_lib/UFI_Window.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Window.cpp
 
-$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(PreprocessSuffix): ../UFI_lib/UFI.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(PreprocessSuffix) ../UFI_lib/UFI.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix): ../UFI_lib/UFI_Anim.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Anim.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix): ../UFI_lib/UFI_Anim.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Anim.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Anim.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Anim.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix): ../UFI_lib/UFI_Debug.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Debug.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix): ../UFI_lib/UFI_Debug.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Debug.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Debug.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Debug.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix): ../UFI_lib/UFI_EventController.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix): ../UFI_lib/UFI_EventController.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix) -MM ../UFI_lib/UFI_EventController.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(PreprocessSuffix): ../UFI_lib/UFI_EventController.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(PreprocessSuffix) ../UFI_lib/UFI_EventController.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix): ../UFI_lib/UFI_ImageLoader.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_ImageLoader.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix): ../UFI_lib/UFI_ImageLoader.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix) -MM ../UFI_lib/UFI_ImageLoader.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(PreprocessSuffix): ../UFI_lib/UFI_ImageLoader.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(PreprocessSuffix) ../UFI_lib/UFI_ImageLoader.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix): ../UFI_lib/UFI_Line.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Line.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix): ../UFI_lib/UFI_Line.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Line.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Line.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Line.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix): ../UFI_lib/UFI_Module.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix): ../UFI_lib/UFI_Module.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Module.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Module.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Module.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix): ../UFI_lib/UFI_Render.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Render.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix): ../UFI_lib/UFI_Render.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Render.cpp
-
-$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Render.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Render.cpp
+$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Window.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Window.cpp
 
 $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(ObjectSuffix): ../UFI_lib/UFI_Texture.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Texture.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(ObjectSuffix) $(IncludePath)
@@ -172,13 +116,77 @@ $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(DependSuffix): ../UFI_lib/U
 $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Texture.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Texture.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Texture.cpp
 
-$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix): ../UFI_lib/UFI_Window.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix): ../UFI_lib/UFI_Window.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Window.cpp
+$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix): ../UFI_lib/UFI_Module.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix): ../UFI_lib/UFI_Module.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Module.cpp
 
-$(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Window.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Window.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Window.cpp
+$(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Module.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Module.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Module.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix): ../UFI_lib/UFI_Line.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Line.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix): ../UFI_lib/UFI_Line.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Line.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Line.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Line.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Line.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix): ../UFI_lib/UFI_EventController.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix): ../UFI_lib/UFI_EventController.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(DependSuffix) -MM ../UFI_lib/UFI_EventController.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(PreprocessSuffix): ../UFI_lib/UFI_EventController.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_EventController.cpp$(PreprocessSuffix) ../UFI_lib/UFI_EventController.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix): ../UFI_lib/UFI_Anim.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Anim.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix): ../UFI_lib/UFI_Anim.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Anim.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Anim.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Anim.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Anim.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix): ../UFI_lib/UFI.cpp $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix): ../UFI_lib/UFI.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(DependSuffix) -MM ../UFI_lib/UFI.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(PreprocessSuffix): ../UFI_lib/UFI.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI.cpp$(PreprocessSuffix) ../UFI_lib/UFI.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix): ../UFI_lib/UFI_Debug.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Debug.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix): ../UFI_lib/UFI_Debug.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Debug.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Debug.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Debug.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Debug.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix): ../UFI_lib/UFI_ImageLoader.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_ImageLoader.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix): ../UFI_lib/UFI_ImageLoader.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(DependSuffix) -MM ../UFI_lib/UFI_ImageLoader.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(PreprocessSuffix): ../UFI_lib/UFI_ImageLoader.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_ImageLoader.cpp$(PreprocessSuffix) ../UFI_lib/UFI_ImageLoader.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix): ../UFI_lib/UFI_Render.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Render.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix): ../UFI_lib/UFI_Render.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Render.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Render.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Render.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Render.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(ObjectSuffix): ../UFI_lib/UFI_Terminal.cpp $(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Terminal.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(DependSuffix): ../UFI_lib/UFI_Terminal.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(DependSuffix) -MM ../UFI_lib/UFI_Terminal.cpp
+
+$(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(PreprocessSuffix): ../UFI_lib/UFI_Terminal.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_UFI_lib_UFI_Terminal.cpp$(PreprocessSuffix) ../UFI_lib/UFI_Terminal.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

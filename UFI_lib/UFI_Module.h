@@ -13,10 +13,10 @@ protected:
 	};
 	
 	struct callback_s{
-		Func_ptr DefaultFunc;
-		Func_ptr FocusedFunc;
-		Func_ptr PressedFunc;
-		Func_ptr DisabledFunc;
+		Func_ptr DefaultFunc = nullptr;
+		Func_ptr FocusedFunc = nullptr;
+		Func_ptr PressedFunc = nullptr;
+		Func_ptr DisabledFunc = nullptr;
 	};
 	
 public:

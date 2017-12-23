@@ -8,20 +8,13 @@
 #include <fstream>
 #include <iostream>
 #include <stdio.h>
-//  from  RunTerminalCmd
-#include <cstdio>
-#include <memory>
-#include <stdexcept>
-#include <string>
-#include <array>
-//  to    RunTerminalCmd
 
 using std::cout;
 using std::endl;
 
 void Createing_textures();
 void StartWin2();
-void ChooseParamWin2();
+void RunTerminal();
 void Win2_Rendering();
 
 SDL_Event			event;
@@ -31,6 +24,8 @@ SDL_Renderer*		renderer_win2 = nullptr;
 
 UFI_Window			Win, Win2;
 UFI_Debug				Debug;
+UFI_Terminal			Terminal;
+//========================================================
 
 UFI_TextElement		cTX_Log;	// Rendered text cTX_* 
 
@@ -111,7 +106,7 @@ void Loop(void)
 	//SDL_SetRenderDrawColor(renderer, 18, 74, 97, 255); 	Blue-up
 	
 	SDL_SetRenderDrawColor(renderer, 15, 31, 47, 255);
-	Win.RenderStartFPS(50);
+	Win.RenderStartFPS(30);
 	
 	Event.RunEventHendler(renderer); // You always must have this Handler
 	
@@ -128,7 +123,7 @@ void Loop(void)
 	
 	sprintf(MouseX, "%d", Ev.Mouse.Position.x);
 	sprintf(MouseY, "%d", Ev.Mouse.Position.y);
-	
+
 	//cTX_Log.Display();
 	//0:0.1:100 = return 0, 0.1, 0.2,....100;
 	//cT_Start_Back.SetAlpha( cA_LineRizeAlpha.Animate(0, 3, 400)); 
@@ -204,13 +199,10 @@ void Createing_textures(){
 		cTX_Log.SetText(MouseY);
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(100,60));
 	
+	
 	cM_Start.SetAlpha(128);
 	cM_Start.SetPosition(10, 50);
 	
-	//Event.AddButtonPressed(renderer, &cM_Start, cTX_Log.SetText(" "), StartWin2); // needs Texture nullptr handler
-	//
-	Event.AddButtonFocused(renderer, &cM_Start, cTX_Log.SetText(" "), ChooseParamWin2); // needs Texture nullptr handler
-
 	/*
 	 * Set cB_Run  
 	 */
@@ -223,7 +215,7 @@ void Createing_textures(){
 		cTX_Log.SetText("Focused");
 	Event.AddButtonFocused(renderer, &cB_Run, cTX_Log.SetPosition(20, 8), nullptr);
 		cTX_Log.SetText("Pressed");
-	Event.AddButtonPressed(renderer, &cB_Run, cTX_Log.SetPosition(20, 10), nullptr);
+	Event.AddButtonPressed(renderer, &cB_Run, cTX_Log.SetPosition(20, 10), RunTerminal);
 	
 	cB_Run.SetAlpha(180);
 	/*
@@ -243,8 +235,9 @@ void Createing_textures(){
 	
 }
 
-void ChooseParamWin2(){
-	cM_Start.DisplayEdges(renderer);
+void RunTerminal(){
+	//Terminal.RunTerminalCmd("gedit");
+	Terminal.RunTerminalCmd("zenity --color-selection --show-palette");
 }
 
 
