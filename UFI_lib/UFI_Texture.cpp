@@ -365,6 +365,7 @@ UFI_TextElement::UFI_TextElement(){
 
 
 UFI_TextElement::~UFI_TextElement(){
+	
 	if(!RendObj.Texture) SDL_DestroyTexture( RendObj.Texture );
 }
 UFI_TextElement::UFI_TextElement(const UFI_TextElement& copy){
@@ -438,6 +439,8 @@ UFI_TextElement* UFI_TextElement::CreateTextureFont(SDL_Renderer *p_rend, const 
 	RendObj.Render = p_rend;
 	
 	p_file_font = file_font;
+	
+	printf("File path %s, file_font %s", p_file_font, file_font);
 	p_text = " blended default ";
 	this->RendObj.Name = " blended default ";
 	
@@ -570,6 +573,8 @@ UFI_TextElement*  UFI_TextElement::SetAlpha( Uint8 a){
 	
 	if(!NeedUpdate(p_colour.a, a)) return this;
 	
+	this->p_colour.a = a;
+	
 	SDL_SetTextureAlphaMod(this->RendObj.Texture, a); // ????????????????? Didn`t work!
 	return this;
 	//cout << "Nope Alpha in this texture, resave with Alpha" << endl;
@@ -588,6 +593,7 @@ void UFI_TextElement::Display(){
 	
 	UpdateFont();
 	//SDL_SetRenderDrawBlendMode(RendObjVect.Render, &RendObjVect[i].TextureBlendMode);
+	SDL_SetTextureAlphaMod(this->RendObj.Texture, this->p_colour.a);
 	
 	if(&RendObj != nullptr){
 		SDL_RenderCopy( 

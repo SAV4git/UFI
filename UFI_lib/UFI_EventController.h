@@ -7,6 +7,7 @@ class UFI_Texture;
 class UFI_TextElement;
 
 using EvFlag = Uint64;
+using EvFlagMask = const Uint64;
 
 class UFI_Mouse
 {
@@ -52,14 +53,16 @@ private:
 
 public:
 	void PrintFlags();
+	void PrintFlags(EvFlagMask);
 	void SetEvFlags(EvFlag);
 	void	SetCallBack(Func_ptr);
 	UFIs_MouseEvent	Mouse;
 	UFIs_KeyBrdEvent	KeyBoard;
 	
 	bool PassedFlagsCheck();
-	bool IsInRect();
-	bool IsInRect(SDL_Rect*);
+	EvFlag GetFlagsMask();
+
+	bool MouseIsInRect(SDL_Rect*);
 	
 	UFI_Event* GetEv();
 };
@@ -91,7 +94,7 @@ protected:
 	void ButtonDown_Handler();
 	void ButtonUp_Handler();
 	void Wheel_Handler();
-	void CheckFlags();
+	bool CheckFlags( UFI_Event );
 	
 	bool IsMouseInside = false;
 	bool IsMouseInsideRect = false;

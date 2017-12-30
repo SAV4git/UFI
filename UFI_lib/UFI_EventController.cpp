@@ -21,9 +21,11 @@
 using std::cout;
 using std::endl;
 
+using EvFlag = Uint64;
+using EvFlagMask = const Uint64;
+
 UFI_EventHendler::UFI_EventHendler(){
 
-	Ev_MouseClickButton.SetEvFlags( EvFlagsMask.Pressed | EvFlagsMask.Left );
 }
 UFI_EventHendler::~UFI_EventHendler(){}
 
@@ -70,9 +72,9 @@ void UFI_EventHendler::ButtonDown_Handler(){
 	Ev.Mouse.Action.clicks = event.button.clicks;
 	
 	EvFlags |= EvFlagsMask.Pressed;
-	cout << "Prs" << endl;
+	cout << "Mouse";
 	
-	if( event.button.button == SDL_PRESSED){
+	if( (event.button.button && (event.button.clicks == 1)) == SDL_PRESSED){
 		
 		EvFlags |= EvFlagsMask.Pressed;
 		Ev.Mouse.Flags |= Ev.Mouse.Action.Pressed;
@@ -80,7 +82,7 @@ void UFI_EventHendler::ButtonDown_Handler(){
 		if( event.button.button == SDL_BUTTON_LMASK){
 			Ev.Mouse.Flags |= Ev.Mouse.Button.Left;
 			EvFlags |= EvFlagsMask.Left;
-			cout << "L" << endl; 
+			cout << "->L"; 
 		}
 		if( event.button.button == SDL_BUTTON_RMASK){
 			cout << "Right Pressed" << endl; 
@@ -91,21 +93,22 @@ void UFI_EventHendler::ButtonDown_Handler(){
 			*/ 
 			Ev.Mouse.Flags |= Ev.Mouse.Button.Right;
 			EvFlags |= EvFlagsMask.Right;
-			cout << "R" << endl; 
+			cout << "->R"; 
 		}
 		if( event.button.button == SDL_BUTTON_MMASK){
 			Ev.Mouse.Flags |= Ev.Mouse.Button.Mid;
 			EvFlags |= EvFlagsMask.Mid;
-			cout << "M" << endl; 
+			cout << "->M"; 
 		}
 	}
 	
 	if( event.button.clicks >= 2 ){
 		Ev.Mouse.Flags |= Ev.Mouse.Action.DoubleClk;
 		EvFlags |= EvFlagsMask.DoubleClk;
-		cout << "DblClk" << endl; 
+		cout << "->DblClk" << endl; 
 	}
 	else {
+		cout << "->Presed"<< endl; 
 		Ev.Mouse.Flags &= ~Ev.Mouse.Action.DoubleClk;
 	}
 }
@@ -116,7 +119,7 @@ void UFI_EventHendler::ButtonUp_Handler(){
 	Ev.Mouse.Flags &= ~(Ev.Mouse.Action.Pressed | Ev.Mouse.Action.DoubleClk);
 	
 	EvFlags &= ~EvFlagsMask.Pressed;
-	cout << "unPresed" << endl;
+	cout << "Released" << endl;
 	EvFlags &= ~EvFlagsMask.Left;
 	
 	if( event.button.button == SDL_RELEASED){
@@ -124,19 +127,16 @@ void UFI_EventHendler::ButtonUp_Handler(){
 			//Mouse.Button.Left = false;
 			Ev.Mouse.Flags &= ~Ev.Mouse.Button.Left;
 			EvFlags &= ~EvFlagsMask.Left;
-			cout << "upL" << endl; 
 		}
 		if( event.button.button == SDL_BUTTON_RMASK){
 			//Mouse.Button.Right = false;
 			Ev.Mouse.Flags &= ~Ev.Mouse.Button.Right;
 			EvFlags &= ~EvFlagsMask.Right;
-			cout << "upR" << endl; 
 		}
 		if( event.button.button == SDL_BUTTON_MMASK){
 			//Mouse.Button.Midle = false;
 			Ev.Mouse.Flags &= ~Ev.Mouse.Button.Mid;
 			EvFlags &= ~EvFlagsMask.Mid;
-			cout << "upM" << endl; 
 		}
 	}
 }
@@ -155,14 +155,16 @@ void UFI_EventHendler::Wheel_Handler(){
 void UFI_EventHendler::VirtualButtonHandler(){
 	for(unsigned i = 0; i < ButtonVect.size(); i++){
 		
+		Ev.SetEvFlags( EvFlagsMask.Pressed | EvFlagsMask.Left);
+		
 		if(ButtonVect[i]->IsButtonActive){
-			//Ev_MouseClickButton.Mouse.Position.Rect = &ButtonVect[i]->GetRect()->Output;
-			Ev_MouseClickButton.Mouse.Position.Rect = ButtonVect[i]->ButtonFocused.Rect;
 			
 			ButtonVect[i]->ButtonDefault.IsActiveted = true;
 			ButtonVect[i]->ButtonPressed.IsActiveted = false;
 			
-			if( Ev_MouseClickButton.IsInRect() ){
+			if( Ev.MouseIsInRect(ButtonVect[i]->ButtonFocused.Rect)){
+				
+				cout << "Fffff" << endl;
 				ButtonVect[i]->ButtonFocused.IsActiveted = true;
 				ButtonVect[i]->ButtonDefault.IsActiveted = false;
 				ButtonVect[i]->ButtonPressed.IsActiveted = false;
@@ -170,7 +172,8 @@ void UFI_EventHendler::VirtualButtonHandler(){
 				if( ButtonVect[i]->CallBack.FocusedFunc!= nullptr)
 					ButtonVect[i]->CallBack.FocusedFunc();
 					
-				if( Ev_MouseClickButton.PassedFlagsCheck() ){
+				if( Event.GetFlags() & Ev.GetFlagsMask() ){
+					
 					ButtonVect[i]->ButtonPressed.IsActiveted = true;
 					
 					if( ButtonVect[i]->CallBack.PressedFunc != nullptr){
@@ -188,7 +191,6 @@ void UFI_EventHendler::VirtualButtonHandler(){
 			if(ButtonVect[i]->ButtonDefault.Title_ptr == nullptr)
 				ButtonVect[i]->ButtonDefault.IsActiveted = false;
 		}
-		
 	}
 }
 
@@ -243,6 +245,12 @@ EvFlag UFI_EventHendler::GetFlags(){
 }
 
 
+bool UFI_EventHendler::CheckFlags( UFI_Event evnt){
+	if( this->GetFlags() & evnt.GetFlagsMask() ) return true;
+	else return false;
+}
+
+
 void UFI_EventHendler::RunEventHendler(SDL_Renderer* rend){
 	SDL_StartTextInput();
 
@@ -274,6 +282,7 @@ void UFI_EventHendler::RunEventHendler(SDL_Renderer* rend){
 				TextEditHandler();break;
 			}
 			case SDL_QUIT:{
+				cout << "Quit UFI" << endl;
 				break;
 			}
 			default:  break;
@@ -304,31 +313,11 @@ void UFI_Event::SetCallBack(Func_ptr func){
 	this->EventStruct.Func = func;
 }
 
-
-bool UFI_Event::IsInRect(){
-	if ( this->Mouse.Position.Rect != nullptr ) {
-		if (SDL_PointInRect( &Ev.Mouse.Position.Point, this->Mouse.Position.Rect ) ){
-
-			return true;
-		}
-	}
-
-	return false;
-}
-
-
-bool UFI_Event::IsInRect(SDL_Rect* rect){
-	if ( this->Mouse.Position.Rect != nullptr ) {
+bool UFI_Event::MouseIsInRect(SDL_Rect* rect){
+	if ( !SDL_RectEmpty(rect) && rect != nullptr ) {
 		if (SDL_PointInRect( &this->Mouse.Position.Point, rect ) ){
 			return true;
-		}else return false;
-		
-		/*
-		cout << "Get = " << std::bitset<16>(Event.GetFlags()) << endl;
-		cout << "Get = " << std::bitset<16>(this->EventStruct.Flags) << endl;
-		cout << "State " << std::bitset<16>(Event.GetFlags() & this->EventStruct.Flags) <<  endl;
-		cout << "State Bit " << (this->EventStruct.Flags && (Event.GetFlags() & this->EventStruct.Flags)) <<  endl;
-		*/
+		}
 	}
 	return false;
 }
@@ -337,6 +326,11 @@ bool UFI_Event::IsInRect(SDL_Rect* rect){
 bool UFI_Event::PassedFlagsCheck(){
 	if( this->EventStruct.Flags && (Event.GetFlags() & this->EventStruct.Flags )) return true;
 	else return false;
+}
+
+
+EvFlag UFI_Event::GetFlagsMask(){
+	return this->EventStruct.Flags;
 }
 
 
@@ -351,6 +345,15 @@ void UFI_Event::PrintFlags(){
 					<< "|" << endl;
 					
 	}
+}
+
+void UFI_Event::PrintFlags(EvFlagMask evnt){
+	static int n = 0;
+	cout <<n++<< "|" << std::bitset<4>(evnt>>12) 
+			<< "|" << std::bitset<4>(evnt>>8) 
+			<< "|" << std::bitset<4>(evnt>>4)
+			<< "|" << std::bitset<4>(evnt)
+			<< "|" << endl;
 }
 
 

@@ -64,7 +64,7 @@ private:
 	int 			p_font_size = 30;
 	
 	const char*		p_text = " ";
-	const char* 	p_file_font = nullptr;
+	const char* 		p_file_font = nullptr;
 	
 	bool NeedUpdate(int, int );
 	void OpenFont();

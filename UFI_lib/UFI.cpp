@@ -17,8 +17,6 @@ using std::right;
 using EvFlag = Uint64;
 
 UFI_EventHendler	Event;
-UFI_EventHendler	Menu1;
-UFI_EventHendler	Menu2;
 
 UFI_Mouse		Mouse;//kill
 UFI_Keyboard	KeyB;//kill

@@ -108,15 +108,15 @@ bool UFI_Window::IsOpen()
 }
 
 
-bool UFI_Window::Close()
+void UFI_Window::Close()
 {
-	if(this->win != nullptr){
+	if(this->win != nullptr && loop == true){
 		loop = false;
 		SDL_DestroyRenderer(this->p_renderer);
 		SDL_DestroyWindow(this->win);
+		this->win = nullptr;
+		this->p_renderer = nullptr;
 	}
-	
-	return this->loop;
 }
 
 UFI_WinParam* UFI_Window::GetWinParam()

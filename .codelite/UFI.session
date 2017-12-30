@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="/home/sav4/Documents/prog/git/UFI/UFI.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="3" Name="m_selectedTab"/>
   <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_Constructor/main.cpp" Name="FileName"/>
-      <int Value="289" Name="FirstVisibleLine"/>
-      <int Value="293" Name="CurrentLine"/>
+      <int Value="30" Name="FirstVisibleLine"/>
+      <int Value="42" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.h" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="21" Name="CurrentLine"/>
+      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI.cpp" Name="FileName"/>
+      <int Value="13" Name="FirstVisibleLine"/>
+      <int Value="25" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Window.cpp" Name="FileName"/>
-      <int Value="12" Name="FirstVisibleLine"/>
-      <int Value="106" Name="CurrentLine"/>
+      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.h" Name="FileName"/>
+      <int Value="85" Name="FirstVisibleLine"/>
+      <int Value="64" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_EventController.cpp" Name="FileName"/>
+      <int Value="156" Name="FirstVisibleLine"/>
+      <int Value="158" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Types.h" Name="FileName"/>
+      <int Value="13" Name="FirstVisibleLine"/>
+      <int Value="19" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/sav4/Documents/prog/git/UFI/UFI_lib/UFI_Module.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="36" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

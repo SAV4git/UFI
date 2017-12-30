@@ -34,7 +34,7 @@ public:
 	SDL_Renderer* CreateRender();
 	void RenderStartFPS(int);
 	void RenderEnd();
-	bool Close();
+	void Close();
 	
 	void 		GetInfo();
 	UFI_WinParam*	GetWinParam();

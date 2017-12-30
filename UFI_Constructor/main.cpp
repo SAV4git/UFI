@@ -16,6 +16,7 @@ void Createing_textures();
 void StartWin2();
 void RunTerminal();
 void Win2_Rendering();
+void BG_Noize(int, Uint8);
 
 SDL_Event			event;
 SDL_Window*		win = nullptr;
@@ -27,7 +28,8 @@ UFI_Debug				Debug;
 UFI_Terminal			Terminal;
 //========================================================
 
-UFI_TextElement		cTX_Log;	// Rendered text cTX_* 
+UFI_TextElement		cTX_Log;	// Rendered text cTX_*
+UFI_TextElement		cTX_Logo;	// Rendered text cTX_*
 
 UFI_Texture			cT_Start_Panel, cT_Output_Back, cT_List_Panel;
 
@@ -49,9 +51,13 @@ Uint64 start_t, end_t, F;
 char fps_buffer[16] = " ";
 
 char MouseX[5] =" ", MouseY[5] = " ";
+char Memory[10] = " ";
 
 int width = 1200;
 int height = 600;
+
+SDL_Rect WinRect;
+
 
 int main(int argc, char **argv)
 {
@@ -74,18 +80,6 @@ int main(int argc, char **argv)
 }
 
 
-void Setup(void){
-	
-	Window_init();
-	printf("window init ok\n\n");
-	Createing_textures();
-	printf("\ntexture init ok\n\n");
-	
-	printf("mem %d\n", Debug.getMemSize_kB());
-	
-}
-
-
 void Window_init(void)
 {
 	printf("\n\n\n > Go go go... \n\n");
@@ -96,9 +90,45 @@ void Window_init(void)
 	Win.GetInfo();
 	
 	renderer = Win.CreateRender();
+}
+
+
+void Setup(void){
+	
+	Window_init();
+	printf("window init ok\n\n");
+	Createing_textures();
+	printf("\ntexture init ok\n\n");
+	
+	printf("mem %d\n", Debug.getMemSize_kB());
+	
+	WinRect.w = width;
+	WinRect.h = height;
+	WinRect.x = 0;
+	WinRect.y = 0;
+	int col;
 	
 	SDL_SetRenderDrawColor( renderer, 0, 30, 70, 255 );
+	cTX_Logo.SetTextColor(255, 255, 255, 255);
+	for(int i = 0; i < 120; i++){
+		Win.RenderStartFPS(200
+		);
+			
+			if(i >= 60){
+				if( i <= 80){
+					col = 255 - (i - 60)*12;
+					cTX_Logo.SetTextColor(col, col, col, 255);
+				} else cTX_Logo.SetTextColor(0, 0, 0, 255);
+			}
+			
+			cTX_Logo.Display();
+			if(i < 50) SDL_SetRenderDrawColor( renderer, 0, 50 - i, 100 - i*2, 0 );
+			else SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+			SDL_RenderDrawRect(renderer, &WinRect);
+		Win.RenderEnd();
+	}
 }
+
 
 void Loop(void)
 {
@@ -118,12 +148,15 @@ void Loop(void)
 	cT_List_Panel.Display();
 	
 	cM_Start.Display();
+	
+	BG_Noize(5000, 140);
 
 	cB_Run.Display();
 	
 	sprintf(MouseX, "%d", Ev.Mouse.Position.x);
 	sprintf(MouseY, "%d", Ev.Mouse.Position.y);
-
+	sprintf(Memory, "%d", Debug.getMemSize_kB());
+	
 	//cTX_Log.Display();
 	//0:0.1:100 = return 0, 0.1, 0.2,....100;
 	//cT_Start_Back.SetAlpha( cA_LineRizeAlpha.Animate(0, 3, 400)); 
@@ -139,6 +172,12 @@ void Loop(void)
 
 
 void Createing_textures(){
+
+	cTX_Logo.CreateTextureFont(renderer,"../Fonts/UnderAuthority.ttf");
+	cTX_Logo.SetFontSize(130);
+	cTX_Logo.SetText("Welcome to UFI");
+	cTX_Logo.SetTextColor(253, 203, 46, 255);
+	cTX_Logo.SetPosition(350, 120);
 	
 	cT_Hex_BG.CreateTextureBMP(renderer, "../Textures/Hex_1.bmp");
 	cT_Hex_BG.SetPosition( -2, -2 );
@@ -156,7 +195,7 @@ void Createing_textures(){
 	cT_BG_black.SetAlpha( 120 );
 	
 	cT_Yb_1.CreateTextureBMP(renderer, "../Textures/Yell_buttons.bmp");
-	cT_Yb_1.SetSprite(463, 0, 124, 49);
+	cT_Yb_1.SetSprite(460, 0, 129, 49);
 	cT_Yb_1.SetOutputSize(124, 49);
 	cT_Yb_1.SetAlpha(220);
 	cT_Yb_1.SetPosition( -463, 0);
@@ -175,9 +214,7 @@ void Createing_textures(){
 	
 	cTX_Log.CreateTextureFont(renderer, "../Fonts/cordiaub.ttf");
 	cTX_Log.SetFontSize(34);
-	cTX_Log.SetText("Welcome");
 	cTX_Log.SetTextColor(253, 203, 46, 255);
-	cTX_Log.SetPosition(300, 108);
 	
 	
 	/*
@@ -185,24 +222,33 @@ void Createing_textures(){
 	 */
 	
 	cM_Start.AddRelativePos(cT_Start_Panel.SetPosition(10, 10));
-	cM_Start.AddRelativePos(cTX_Log.SetPosition(200,10));
-
+		
+	cM_Start.SetAlpha(180);
+		cTX_Log.SetFontSize(35);
+		cTX_Log.SetAlpha(255);
+		
+		cTX_Log.SetText("Welcome");
+	cM_Start.AddRelativePos(cTX_Log.SetPosition(200, 8));
 		cTX_Log.SetFontSize(25);
 		cTX_Log.SetText(fps_buffer);
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(50,250));
+	
 		cTX_Log.SetText("Mouse X= ");
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(20,40));
 		cTX_Log.SetText(MouseX);
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(100,40));
+	
 		cTX_Log.SetText("Mouse Y= ");
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(20,60));
 		cTX_Log.SetText(MouseY);
 	cM_Start.AddRelativePos(cTX_Log.SetPosition(100,60));
 	
+		cTX_Log.SetText("Memory in kB");
+	cM_Start.AddRelativePos(cTX_Log.SetPosition(20,80));
+		cTX_Log.SetText(Memory);
+	cM_Start.AddRelativePos(cTX_Log.SetPosition(150,80));
 	
-	cM_Start.SetAlpha(128);
 	cM_Start.SetPosition(10, 50);
-	
 	/*
 	 * Set cB_Run  
 	 */
@@ -215,9 +261,9 @@ void Createing_textures(){
 		cTX_Log.SetText("Focused");
 	Event.AddButtonFocused(renderer, &cB_Run, cTX_Log.SetPosition(20, 8), nullptr);
 		cTX_Log.SetText("Pressed");
-	Event.AddButtonPressed(renderer, &cB_Run, cTX_Log.SetPosition(20, 10), RunTerminal);
+	Event.AddButtonPressed(renderer, &cB_Run, cTX_Log.SetPosition(20, 10), StartWin2);
 	
-	cB_Run.SetAlpha(180);
+	cB_Run.SetAlpha(190);
 	/*
 	Event.AddAnimation( cA_LineRizeAlpha, START, cA_LineRizeX.StartWithDelay_ms(200));
 	Event.AddAnimation( cA_LineRizeAlpha, END, Callback);
@@ -232,7 +278,7 @@ void Createing_textures(){
 	cA_LineRizeAlpha.SetLinear();
 	
 	// Create textures for constructor interface
-	
+
 }
 
 void RunTerminal(){
@@ -242,16 +288,18 @@ void RunTerminal(){
 	Terminal.Zenity_pallete(&Col);
 	
 	cB_Run.ButtonDefault.Title_ptr->SetTextColor(Col.r, Col.g, Col.b, Col.a);
+	cB_Run.ButtonFocused.Title_ptr->SetTextColor(Col.r, Col.g, Col.b, Col.a);
 }
 
 
 void StartWin2(){
+	printf("StartWin2()\n");
 	if( !Win2.IsOpen() ){
 		Win2.CreateWithSize(800, 600);
 		Win2.SetTitle("UFI Constructor");
 		renderer_win2 = Win2.CreateRender();
 		printf("Win2 Started\n");
-	} else return;
+	} else printf("Win2 opened\n");
 }
 
 void Win2_Rendering(){
@@ -259,6 +307,22 @@ void Win2_Rendering(){
 	
 	Win2.RenderStartFPS(60);
 	
-		
+		 
 	Win2.RenderEnd();
+}
+
+void BG_Noize(int N, Uint8 alpha){
+	static SDL_Point point[100000];
+	
+	for(int i = 0; i < N; i++){
+		point[i].x = rand()%1200;
+		point[i].y = rand()%600;
+	}
+	SDL_SetRenderDrawColor(renderer, 100, 140, 255, alpha >> 3);
+	for(int i = 0; i < 600; i +=2){
+		SDL_RenderDrawLine(renderer, 0, i, width, i);
+	}
+	
+	SDL_SetRenderDrawColor(renderer, 100, 0, 160, alpha);
+	SDL_RenderDrawPoints(renderer, point, N);
 }
